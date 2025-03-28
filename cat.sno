@@ -1,0 +1,6 @@
+*         INPUT('ReadLine', 1,, 'first.sno')
+        INPUT('ReadLine', 1)                :S(OK)
+        OUTPUT = 'Could not find file.'     :(END)
+LOOP    Line = ReadLine                     :F(END)
+        OUTPUT = Line                       :S(LOOP)
+END
