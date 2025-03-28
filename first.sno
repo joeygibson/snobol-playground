@@ -1,0 +1,29 @@
+* Samples from https://en.wikipedia.org/wiki/SNOBOL
+*
+*    OUTPUT = 'What is your name?'
+*    Username = INPUT
+*    OUTPUT = 'Thank you, ' Username
+
+*      OUTPUT = 'What is your name?'
+*      Username = INPUT
+*      Username 'J'                                 :S(LOVE)
+*      Username 'K'                                 :S(HATE)
+* MEH  OUTPUT = 'Hi, ' Username                     :(END)
+* LOVE OUTPUT = 'How nice to meet you.' Username    :(END)
+* HATE OUTPUT = "Oh, it's you..." Username
+* END
+
+         OUTPUT = 'This program will ask you for personal names'
+         OUTPUT = 'until you press <Return> without giving one.'
+         NameCount = 0                                          :(GETINPUT)
+AGAIN    NameCount = NameCount + 1
+         OUTPUT = 'Name ' NameCount ': ' PersonalName
+GETINPUT OUTPUT = 'Please give me name ' NameCount + 1
+         PersonalName = INPUT
+         PersonalName LEN(1)                                    :S(AGAIN)
+         OUTPUT = 'Finished. ' NameCount ' names requested.'
+END
+
+               
+
+
