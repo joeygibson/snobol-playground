@@ -1,0 +1,18 @@
+* Read in file, delete first 8 characters from each line,
+* and print the rest.
+
+       FileName = HOST(0)
+       FileName Len(1)                      :S(BANNER)
+       FileName = '-'
+
+BANNER OUTPUT = 'Reading: ' FileName
+
+       INPUT('ReadLine', 1,, FileName)      :S(LOOP)
+       OUTPUT = 'Could not find file.'      :(END)
+
+LOOP   Line = ReadLine                      :F(END)
+       Line Len(8) =
+       OUTPUT = Line                        :S(LOOP)
+
+END
+
