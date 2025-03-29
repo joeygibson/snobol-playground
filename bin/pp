@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import re
+import sys
 
 def format_snobol4(code):
     formatted_lines = []
@@ -28,12 +29,10 @@ def format_snobol4(code):
     
     return "\n".join(formatted_lines)
 
-# Example usage
-snobol_code = """
-START   OUTPUT = "Hello, World!"
-        END
-"""
+if __name__ == '__main__':
+    with open(sys.argv[1]) as f:
+        contents = f.read()
 
-formatted_code = format_snobol4(snobol_code)
-print(formatted_code)
+        formatted_code = format_snobol4(contents)
+        print(formatted_code)
 

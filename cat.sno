@@ -1,6 +1,15 @@
-*         INPUT('ReadLine', 1,, 'first.sno')
-        INPUT('ReadLine', 1)                :S(OK)
+* Read a file and write it to stdout.
+* 
+        FileName = HOST(0)
+        FileName Len(1)                     :S(BANNER)
+        FileName = '-'
+        
+BANNER  OUTPUT = 'Reading: ' FileName
+        
+        INPUT('ReadLine', 1,, FileName)     :S(LOOP)
         OUTPUT = 'Could not find file.'     :(END)
+        
 LOOP    Line = ReadLine                     :F(END)
         OUTPUT = Line                       :S(LOOP)
 END
+
