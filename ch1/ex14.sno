@@ -1,0 +1,16 @@
+* Read strings, encoding them using rot13
+     LOWER    = 'abcdefghijklmnopqrstuvwxyz'
+     UPPER    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+     ROTATED  = 'NOPQRSTUVWXYZABCDEFGHIJKLM' 
+
+LOOP OUTPUT = 'Enter a string'
+     Line = INPUT                       :F(END)
+     Line Len(1)                        :F(END)
+
+     Line = REPLACE(Line, LOWER, UPPER)
+     Line = REPLACE(Line, UPPER, ROTATED)
+
+     OUTPUT = Line                      :(LOOP)
+
+END
+
