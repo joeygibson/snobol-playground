@@ -1,0 +1,18 @@
+* Compute and print the first ten powers of `e`, and their sums
+*
+
+        E = 2.718281828459
+        Total = 0.0
+        Count = 1
+LOOP    Count EQ 11                 :S(DONE)
+        Exp = E ** Count
+        OUTPUT = Count ': ' Exp
+        Total = Total + Exp
+        Count = Count + 1           :(LOOP)
+        
+DONE
+        OUTPUT = 'Total: ' Total
+END
+
+        
+
