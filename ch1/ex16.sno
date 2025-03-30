@@ -1,5 +1,27 @@
 * Create a table mapping hex digits to their decimal equivalent.
-* Write a function that convers a hex string to its decimal value.
+* Write a function that converts a hex string to its decimal value.
+      &TRIM = 1
+      ONECH = LEN(1) . CH
+      DIGITS = TABLE(16)
+      DIGITS<'0'> = 0; DIGITS<'1'> = 1; DIGITS<'2'> = 2; DIGITS<'3'> = 3
+      DIGITS<'4'> = 4; DIGITS<'5'> = 5; DIGITS<'6'> = 6; DIGITS<'7'> = 7
+      DIGITS<'8'> = 8; DIGITS<'9'> = 9; DIGITS<'A'> = 10; DIGITS<'B'> = 11
+      DIGITS<'C'> = 12; DIGITS<'D'> = 13; DIGITS<'E'> = 14; DIGITS<'F'> = 15
 
+      DEFINE('CONVERT(STRING)Sum')
+      
+READ  STRING = INPUT                            :F(END)
+      STRING Len(1)                             :F(END)
+      OUTPUT = STRING ' -> ' CONVERT(STRING)    :(READ)
+
+CONVERT I = SIZE(STRING) - 1        
+        STRING OneCh =                          :F(DONE)
+        DEC = DIFFER(DIGITS<Ch>) DIGITS<Ch> * (16 ** I)
+        Sum = Sum + DEC                         :S(CONVERT)
+DONE    CONVERT = Sum                           :(RETURN)        
+
+END
+1A3
+4D2
 
 
