@@ -1,0 +1,22 @@
+* Read a "deck" into an array. The first card gives the number\
+* of cards. Print them in reverse order.
+     &TRIM = 1
+     I = 1
+     Cards = Array(INPUT)
+
+LOOP Cards<I> = INPUT       :F(GO)
+     I = I + 1              :(LOOP)
+
+GO   I EQ 0                 :S(END)
+     OUTPUT = Cards<I>
+     I = I - 1              :(GO)
+
+END
+3
+This is Card 1.
+This is Card 2.
+This is Card 3.
+
+
+
+
