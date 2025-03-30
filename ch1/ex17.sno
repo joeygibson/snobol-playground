@@ -1,0 +1,34 @@
+* Let a binary tree be a data structure composed of nodes that contain three
+* fields: value, left son, right son. A tree has a distinguished node, the root, that is not the
+* left son or right son of any node.
+* 
+* a. Define a data type BNODE with fields appropriate for a binary tree.
+* b. Generate a binary tree with three nodes such that the value of the root node is +,
+*    the value of the left son is X, and the value of the right son is Y.
+* c. Define a function LLIST that prints the values of the nodes of a binary tree in
+*    the following order.
+
+     DATA('BNODE(VALUE,LSON,RSON)')
+     L1 = BNODE('Z')
+     R1 = BNODE('A')
+     L2 = BNODE('B')
+     R2 = BNODE('C')
+     
+     LEFT = BNODE('X', L1, R1)
+     RIGHT = BNODE('Y', L2, R2)
+     ROOT = BNODE('+', LEFT, RIGHT)
+
+     DEFINE('LLIST(NODE)')
+
+     LLIST(ROOT)                         :(END)
+
+LLIST OUTPUT = DIFFER(NODE) VALUE(NODE)  :F(RETURN)
+      LLIST(LSON(NODE))
+      LLIST(RSON(NODE))                  :(RETURN)
+         
+
+END
+
+
+
+
