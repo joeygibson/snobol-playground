@@ -1,0 +1,19 @@
+* -*- mode: snobol -*-
+*
+* shows usage of LEN in pattern matching
+
+       &ANCHOR = 1
+       DATE = LEN(4) . YR ' ' LEN(4) . MO ' ' LEN(2) . DAY
+
+LOOP   CARD = INPUT                                          :F(END)
+*      This next line matches the pattern, and if it matches
+*      replaces the date field with the reformatted version
+*      IN PLACE.
+       CARD DATE = MO ' ' DAY ', ' YR '  '                   :F(NOGOOD)
+       OUTPUT = CARD                                         :(LOOP)
+
+NOGOOD OUTPUT = CARD ' improperly formatted.'                :(LOOP)
+END
+1290 SEP. 27 CHINA, CHIHLI    100,000
+1293 MAY  20 JAPAN, KAMARKURA  30,000
+1531 JAN. 26 PORTUGAL, LISBON  30,000

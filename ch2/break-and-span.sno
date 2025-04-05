@@ -1,0 +1,16 @@
+* -*- mode: snobol -*-
+*
+* demonstrates using SPAN and BREAK in pattern matching
+
+       &ANCHOR = 1; &TRIM = 1
+       FIELD = BREAK(' ') . CHARS SPAN(' ')
+
+LOOP   CARD = INPUT                             :F(END)
+INLOOP CARD FIELD = CHARS ':'                   :S(INLOOP)
+       OUTPUT = CARD                            :(LOOP)
+
+END
+ACTINIUM    AC    89    227*      1899 DEBIERNE
+ALUMINUM    AL    13     26.9815  1825 OERSTED
+AMERICUM    AM    95    243*      1944 SEABORG
+ANTIMONY    SB    51    121.75    1450 VALENTINE

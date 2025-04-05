@@ -1,0 +1,18 @@
+* -*- mode: snobol -*-
+*
+* demonstrates matching and the @ cursor assignment
+
+       &TRIM = 1
+       P = ('B' | 'R') ('E' | 'EA') ('D' | 'DS')
+       PATTERN = @X P @Y
+
+LOOP   OUTPUT = INPUT                             :F(END)
+       OUTPUT PATTERN                             :F(NOPAT)
+       OUTPUT = DUPL(' ', X) DUPL('-', Y - X)
+
+BLLINE OUTPUT =                                 :(LOOP)
+NOPAT  OUTPUT = 'P failed to match'             :(BLLINE)
+END
+THE BEADS ARE RED.
+BRED AND BORED.
+BEAUTY AND THE BEAST.
