@@ -1,0 +1,25 @@
+* -*- mode: snobol -*-
+*
+* demonstrates using fail
+
+      &ANCHOR = 1; &TRiM = 1
+      OUTPUT = 'Acceptable words are: '
+      OUTPUT =
+      PAT = (BREAK('A') $ A | BREAK('B') $ B | BREAK('C') $ C) FAIL
+
+LOOP  STRING = ' ' INPUT                                            :F(END)
+      A =
+      B =
+      C =
+      STRING PAT
+      (DIFFER(A) DIFFER(B) IDENT(C))                                :F(LOOP)
+      OUTPUT = STRING                                               :(LOOP)
+
+END
+ALPHA
+BETA
+ABRACADABRA
+ABSOLUTELY
+AWFUL
+ALBEIT
+

@@ -1,0 +1,25 @@
+* -*- mode: snobol -*-
+*
+* demonstrates using pos and rpos
+
+      &ANCHOR = 1; &TRIM = 1
+      FIELD = SPAN(' ') BREAK(' ')
+      FORMAT = POS(0) FIELD POS(10) FIELD POS(20) FIELD
++              POS(30) FIELD POS(40) SPAN(' ') RPOS(0)
+      OUTPUT = 'Cards with improper format are:'
+      OUTPUT =
+
+LOOP  N = N + 1
+      CARD = INPUT                                          :F(END)
+      CARD FORMAT                                           :S(LOOP)
+      OUTPUT = '#' N DUPL(' ', 3 - SIZE(N)) CARD            :(LOOP)
+
+END
+ XXXXXXXXX   XXXXXXX     XXXXX         X
+             XXXXXXX     XXXXX         X
+ XXXXXXXXX   XXXXXXX     XXXXX         X
+ XXXXXXXXX               XXXXX         X
+ 
+      
+      
+
