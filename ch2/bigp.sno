@@ -1,0 +1,20 @@
+* -*- mode: snobol -*-
+*
+* Given any subject string STR and any pattern P, BIGP finds the longest substring of
+* STR that P matches.
+
+      BIGP = (*P $ TRY *GT(SIZE(TRY), SIZE(BIG))) $ BIG FAIL
+      STR = 'IN 1964 NFL ATTENDANCE JUMPED TO 4,807,884; '
++           'AN INCREASE OF 401,810.'
+      P = SPAN('0123456789,')
+      BIG =
+      STR BIGP
+      OUTPUT = 'Largest number is ' BIG
+      P = SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+      BIG =
+      STR BIGP
+      OUTPUT = 'Largest word is ' BIG
+
+END
+
+

@@ -1,0 +1,21 @@
+* -*- mode: snobol -*-
+*
+* demonstrates using unevaluated expressions in matching
+
+       &ANCHOR = 0; &TRIM = 1
+       WORD = BREAK(' .,') . W SPAN(' .,')
+       FINDW = ' ' *W ANY(' .,')
+       STRING1 = INPUT ' '                           :F(ERROR)
+       STRING2 = ' ' INPUT ' '                       :F(ERROR)
+
+LOOP   STRING1 WORD =                                :F(OUTPUT)
+       STRING2 FINDW                                 :F(LOOP)
+       LIST = LIST W ', '                            :(LOOP)
+
+OUTPUT OUTPUT = LIST
+END
+THESE TWO STRINGS ARE ALMOST ALIKE.
+THE TWO STRINGS AREN'T ALIKE.
+
+
+

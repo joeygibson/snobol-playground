@@ -1,0 +1,11 @@
+* -*- mode: snobol -*-
+*
+* demonstrates matching against a pair of identical characters
+
+      PAIR = (LEN(1) $ X *X) . OUTPUT
+      'COOK' PAIR
+      'COMMON' PAIR
+      'AARON' PAIR
+      'CHICKADEE' PAIR
+
+END
