@@ -1,0 +1,24 @@
+* -*- mode: snobol -*-
+*
+* more recursion, recognizing basic patterns
+
+       &TRIM = 1
+       P = '  ' *P | ' '
+       PAT = @Y '  ' P @X
+
+LOOP   CARD = INPUT                             :F(END)
+       OUTPUT = CARD
+
+LOOP1  CARD PAT = DUPL(' .', (X - Y) / 2) ' '   :S(LOOP1)
+       OUTPUT = CARD                            :(LOOP)
+
+END
+INSERT                   LEADERING
+TRY TWO  BLANKS
+TRY THREE   BLANKS
+TRY FOUR    BLANKS
+TRY FIVE     BLANKS
+TRY         SEVERAL       BREAKS
+FINALLY, TRY
+LEADERING
+                                           A RIGHT JUSTIFIED ONE.

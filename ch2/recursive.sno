@@ -1,0 +1,13 @@
+* -*- mode: snobol -*-
+*
+* demonstrates recursive patterns using unevaluated sub-patterns
+
+      P = *P 'Z' | 'Y'
+      PO = P . OUTPUT
+      'Y' PO
+      'YZZZ' PO
+      'XYZ' PO
+      'YZZX' PO
+      'AYZZZZB' PO
+
+END

@@ -1,0 +1,23 @@
+* -*- mode: snobol -*-
+*
+* demonstrates more complicated recursive patterns using
+* unevaluated sub-patterns
+
+       &ANCHOR = 1
+       VARIABLE = ANY('XYZ')
+       ADDOP = ANY('+-')
+       MULOP = ANY('*/')
+       FACTOR = VARIABLE | '(' *EXP ')'
+       TERM = FACTOR | *TERM MULOP FACTOR
+       EXP = ADDOP TERM | TERM | *EXP ADDOP TERM
+
+LOOP   STRING = TRIM(INPUT)                          :F(END)
+       STRING EXP RPOS(0)                            :F(NOGOOD)
+       OUTPUT = STRING ' is an expression.'          :(LOOP)
+
+NOGOOD OUTPUT = STRING ' is not an expression.'      :(LOOP)
+END
+X+Y*(Z+X)
+X+X+Z
+XY
+
