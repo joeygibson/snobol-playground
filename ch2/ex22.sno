@@ -1,0 +1,13 @@
+* -*- mode: snobol -*-
+*
+* match words beginning with 'C' or 'CR', then
+* 'O', 'OO', or 'EE', then 'P', or 'PS'. Print
+* immediate matches.
+
+       PAT = ('C' | 'CR') $ OUTPUT (SPAN('O') | SPAN('E')) $ OUTPUT ('P' | 'PS') $ OUTPUT RPOS(0)
+       'POOPCOOPS' PAT
+       OUTPUT = '---'
+       'CRAPCREEPY' PAT
+
+END
+
