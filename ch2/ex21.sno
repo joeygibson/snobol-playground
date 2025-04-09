@@ -1,0 +1,18 @@
+* -*- mode: snobol -*-
+*
+* count all punctuation marks in a series of cards
+       &ANCHOR = 0; &TRIM = 1
+       
+       PUNCS = ANY('.,:;?!()') | '"' | "'"
+       COUNT = 0
+
+LOOP   CARD = INPUT                         :F(DONE)
+
+LOOP1  CARD PUNCS . M =                     :F(LOOP)
+       COUNT = COUNT + 1                    :(LOOP1)
+
+DONE   OUTPUT = 'Total punctuation: ' COUNT :(END)
+
+END
+This is a test. Testing; 1, 2; 3.
+"Ring-a-ding-ding!", said Frank.
