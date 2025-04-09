@@ -1,0 +1,9 @@
+* -*- mode: snobol -*-
+*
+* using `bal` in pattern matching
+
+       '((A+(B*C))+D)' BAL $ OUTPUT FAIL
+
+END
+
+

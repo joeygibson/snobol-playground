@@ -1,0 +1,13 @@
+* -*- mode: snobol -*-
+*
+* shows difference between quick and full scans
+
+       &FULLSCAN = 1
+       DEFINE('F(X,Y,Z)')
+       COMB3 = LEN(1) $ A ARB LEN(1) $ B ARB LEN(1) $ C
++      *F(A, B, C) FAIL
+       '123456' COMB3                                   :(END)
+
+F      OUTPUT = X Y Z                                   :(RETURN)
+END
+
